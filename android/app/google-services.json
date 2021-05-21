@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "118142372173",
+    "project_id": "plasma-fa87e",
+    "storage_bucket": "plasma-fa87e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118142372173:android:235e6b37fc6a2753e60f04",
+        "android_client_info": {
+          "package_name": "com.jitendra.plasma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118142372173-vpmu58313ve1b01gu8dr8csnk5iisvu1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jitendra.plasma",
+            "certificate_hash": "55be7f591d3590d592cc51ae969a30bd93254c63"
+          }
+        },
+        {
+          "client_id": "118142372173-otdtj59412g625kg685cgopot1pus0sh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkweUSoSV7EnA_yMi5HIhaOv3nATWp2_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118142372173-otdtj59412g625kg685cgopot1pus0sh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
