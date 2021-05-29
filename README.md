@@ -1,4 +1,4 @@
-# plasma
+# Plasma
 
 A new Flutter application.
 

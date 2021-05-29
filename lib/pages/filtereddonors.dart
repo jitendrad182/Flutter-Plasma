@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/services/database.dart';
+import 'package:plasma/utilities/const.dart';
 import 'package:plasma/widgets/usersinfowidget.dart';
 
 class FilteredDonorsPage extends StatefulWidget {
@@ -61,7 +64,21 @@ class _FilteredDonorsPageState extends State<FilteredDonorsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Filtered Donors')),
+      appBar: AppBar(
+        title: Text('Filtered Donors'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: dataInfoWidget(),
     );
   }

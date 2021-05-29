@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:plasma/pages/opening_page.dart';
@@ -53,8 +54,7 @@ class _IntroductionPagesState extends State<IntroductionPages> {
           ),
         ),
         onDone: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => OpeningPage()));
+          Get.to(OpeningPage());
         },
       ),
     );

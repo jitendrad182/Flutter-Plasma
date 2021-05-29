@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:plasma/pages/main_page.dart';
+import 'package:plasma/utilities/const.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('About')),
+      appBar: AppBar(
+        title: Text('About'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -24,9 +41,10 @@ class AboutPage extends StatelessWidget {
                 child: Text(
                   'PLASMA',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 32,
-                      fontFamily: 'Pacifico'),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                    fontFamily: 'Pacifico',
+                  ),
                 ),
               ),
             ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/chat.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/services/auth.dart';
 import 'package:plasma/utilities/const.dart';
 import 'package:plasma/widgets/reusable_textbutton_widget.dart';
@@ -35,24 +37,33 @@ class ProfilePageOther extends StatefulWidget {
 
 class _ProfilePageOtherState extends State<ProfilePageOther> {
   getAndSetMessage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ChatPage(
-          name: widget.name,
-          email: widget.email,
-          uid: widget.uid,
-          pic: widget.pic,
-          chatRoom: false,
-        ),
-      ),
-    );
+    Get.to(ChatPage(
+      name: widget.name,
+      email: widget.email,
+      uid: widget.uid,
+      pic: widget.pic,
+      chatRoom: false,
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile')),
+      appBar: AppBar(
+        title: Text('Profile'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

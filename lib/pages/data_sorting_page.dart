@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:plasma/pages/filter2.dart';
 import 'package:plasma/pages/filtereddonors.dart';
@@ -22,16 +23,11 @@ class _DataSortingPageState extends State<DataSortingPage> {
 
   onPressed() {
     if (_key.currentState.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => FilteredDonorsPage(
-            city: _city,
-            state: _state,
-            bloodGroup: _bloodGroup,
-          ),
-        ),
-      );
+      Get.to(FilteredDonorsPage(
+        city: _city,
+        state: _state,
+        bloodGroup: _bloodGroup,
+      ));
     }
   }
 
@@ -41,12 +37,7 @@ class _DataSortingPageState extends State<DataSortingPage> {
     });
     await LocationByLocation().getLocation();
     var pinCode = LocationByLocation.pinCode;
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Filter2(pinCode),
-      ),
-    );
+    Get.to(Filter2(pinCode));
     setState(() {
       _inAsyncCall = false;
     });

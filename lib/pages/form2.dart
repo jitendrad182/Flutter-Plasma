@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/services/auth.dart';
 import 'package:plasma/services/database.dart';
 import 'package:plasma/utilities/const.dart';
@@ -50,8 +52,7 @@ class _Form2State extends State<Form2> {
         await DataBaseMethods()
             .saveUserInfo(userId: AuthMethods.uid, userInfoMap: userInfoMap)
             .then((value) {
-          Navigator.pop(context);
-          Navigator.pop(context);
+          Get.offAll(MainPage());
         });
       }
     }
@@ -60,7 +61,21 @@ class _Form2State extends State<Form2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registration Form')),
+      appBar: AppBar(
+        title: Text('Registration Form'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: ListView(
         children: [
           Padding(

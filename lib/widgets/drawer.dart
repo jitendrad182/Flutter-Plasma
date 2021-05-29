@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/about.dart';
+import 'package:plasma/pages/ntroduction_pages.dart';
 import 'package:plasma/pages/profile.dart';
 import 'package:plasma/services/auth.dart';
-import 'package:plasma/services/functions.dart';
 import 'package:plasma/utilities/const.dart';
 
 class KDrawer extends StatelessWidget {
+  signMeOut() async {
+    try {
+      await AuthMethods().signOut().then(
+        (value) {
+          Get.offAll(IntroductionPages());
+        },
+      );
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -45,15 +58,12 @@ class KDrawer extends StatelessWidget {
             title: Text('Profile', style: TextStyle(fontSize: 18)),
             leading: Icon(Icons.person, color: Colors.black),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UserProfile(
-                    name: AuthMethods.name,
-                    pic: AuthMethods.pic,
-                    email: AuthMethods.email,
-                    uid: AuthMethods.uid,
-                  ),
+              Get.to(
+                UserProfile(
+                  name: AuthMethods.name,
+                  pic: AuthMethods.pic,
+                  email: AuthMethods.email,
+                  uid: AuthMethods.uid,
                 ),
               );
             },
@@ -62,15 +72,14 @@ class KDrawer extends StatelessWidget {
             title: Text('About Us', style: TextStyle(fontSize: 18)),
             leading: Icon(Icons.info_sharp, color: Colors.black),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AboutPage()));
+              Get.to(AboutPage());
             },
           ),
           ListTile(
             title: Text('Log Out', style: TextStyle(fontSize: 18)),
             leading: Icon(Icons.exit_to_app, color: Colors.black),
             onTap: () {
-              Functions().signMeOut(context);
+              signMeOut();
             },
           )
         ],

@@ -15,7 +15,7 @@ class _OpeningPageState extends State<OpeningPage> {
     setState(() {
       _inAsyncCall = true;
     });
-    await AuthMethods().signInWithGoogle(context, true);
+    await AuthMethods().signInWithGoogle();
     setState(() {
       _inAsyncCall = false;
     });

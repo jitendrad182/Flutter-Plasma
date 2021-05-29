@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:plasma/pages/main_page.dart';
+import 'package:plasma/utilities/const.dart';
 
 class UserProfile extends StatefulWidget {
   final String name, email, pic, uid;
@@ -11,7 +14,21 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile')),
+      appBar: AppBar(
+        title: Text('Profile'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

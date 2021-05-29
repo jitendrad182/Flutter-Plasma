@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:plasma/pages/main_page.dart';
 
@@ -31,7 +30,7 @@ class AuthMethods {
     }
   }
 
-  Future signInWithGoogle(BuildContext context, bool bool) async {
+  Future signInWithGoogle() async {
     try {
       final GoogleSignInAccount account = await _signIn.signIn();
       final GoogleSignInAuthentication authentication =
@@ -47,8 +46,7 @@ class AuthMethods {
         name = user.displayName;
         pic = user.photoURL;
         uid = user.uid;
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainPage()));
+        Get.offAll(MainPage());
       }
     } catch (e) {
       print(e);

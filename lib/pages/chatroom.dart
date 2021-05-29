@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/chat.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/services/auth.dart';
 import 'package:plasma/services/database.dart';
+import 'package:plasma/utilities/const.dart';
 
 class ChatRoom extends StatefulWidget {
   @override
@@ -50,18 +53,13 @@ class _ChatRoomState extends State<ChatRoom> {
                           ),
                           subtitle: Text(ds['email']),
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ChatPage(
-                                  pic: ds['pic'],
-                                  name: ds['name'],
-                                  email: ds['email'],
-                                  uid: ds['uid'],
-                                  chatRoom: true,
-                                ),
-                              ),
-                            );
+                            Get.to(ChatPage(
+                              pic: ds['pic'],
+                              name: ds['name'],
+                              email: ds['email'],
+                              uid: ds['uid'],
+                              chatRoom: true,
+                            ));
                           },
                         ),
                         Divider(thickness: 2, height: 0),
@@ -84,7 +82,21 @@ class _ChatRoomState extends State<ChatRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Chat')),
+      appBar: AppBar(
+        title: Text('Chat'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: listTileInfoWidget(),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/form2.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/utilities/const.dart';
 import 'package:plasma/widgets/reusable_city_dropdown.dart';
 import 'package:plasma/widgets/reusable_donor_or_eceiver_dropdown.dart';
@@ -23,25 +25,34 @@ class _RegisterPageState extends State<RegisterPage> {
 
   next() {
     if (_key.currentState.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Form2(
-            donor: _donorOrReceiver == 'I am donor' ? true : false,
-            state: _state,
-            city: _city,
-            address: _addressController.text,
-            pinCode: _pinCode.text,
-          ),
-        ),
-      );
+      Get.to(Form2(
+        donor: _donorOrReceiver == 'I am donor' ? true : false,
+        state: _state,
+        city: _city,
+        address: _addressController.text,
+        pinCode: _pinCode.text,
+      ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registration Form')),
+      appBar: AppBar(
+        title: Text('Registration Form'),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
+      ),
       body: ListView(
         children: [
           Padding(

@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:plasma/pages/main_page.dart';
 import 'package:plasma/services/auth.dart';
 import 'package:plasma/services/database.dart';
 import 'package:plasma/utilities/const.dart';
@@ -126,6 +128,18 @@ class _ChatPageState extends State<ChatPage> {
             Text(widget.name),
           ],
         ),
+        actions: [
+          IconButton(
+            splashRadius: 25,
+            icon: Icon(
+              Icons.close,
+              color: kButtonColor,
+            ),
+            onPressed: () {
+              Get.offAll(MainPage());
+            },
+          )
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

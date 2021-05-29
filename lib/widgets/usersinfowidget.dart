@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/otherprofile_page.dart';
 import 'package:plasma/utilities/const.dart';
 
@@ -39,24 +40,19 @@ class UsersInfo extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProfilePageOther(
-                name: name,
-                pic: pic,
-                email: email,
-                phone: phone,
-                bloodGroup: bloodGroup,
-                age: age,
-                address: address,
-                uid: uid,
-                cityName: cityName,
-                stateName: stateName,
-                gender: gender,
-              ),
-            ),
-          );
+          Get.to(ProfilePageOther(
+            name: name,
+            pic: pic,
+            email: email,
+            phone: phone,
+            bloodGroup: bloodGroup,
+            age: age,
+            address: address,
+            uid: uid,
+            cityName: cityName,
+            stateName: stateName,
+            gender: gender,
+          ));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),

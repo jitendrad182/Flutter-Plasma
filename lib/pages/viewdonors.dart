@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:plasma/pages/data_sorting_page.dart';
 import 'package:plasma/services/database.dart';
 import 'package:plasma/widgets/usersinfowidget.dart';
@@ -66,12 +67,7 @@ class _ViewDonorsState extends State<ViewDonors> {
               icon: Icon(Icons.filter_list_sharp),
               splashRadius: 25,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DataSortingPage(),
-                  ),
-                );
+                Get.to(DataSortingPage());
               },
             ),
           )
