@@ -34,4 +34,4 @@ After recovering from covid if you think you can help people with plasma donatio
 
 
 ## [PPT](https://docs.google.com/presentation/d/1rLbAgC2QCO6-Du2upyxPwTqKHgJ0hF8sDKDdhGTCdos/edit?usp=sharing)
-## [Demo Video](https://youtu.be/iWjdHn3djvk)
+## [Demo Video](https://youtu.be/cVuld2WJcmQ)
